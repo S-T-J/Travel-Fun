@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import actions from '../api';
 
 const Comments = (props) => {
 	let [ comment, setComment ] = useState('');
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log(`Send ${comment} to api.js then routes.js then db`);
 	};

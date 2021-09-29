@@ -36,6 +36,7 @@ function App() {
         <Route exact path="/all-posts" render={(props) => <AllPosts user={user} {...props} />} />
         <Route exact path="/new-post" render={(props) => <NewPost user={user} {...props} />} />
         <Route exact path="/profile" render={(props) => <Profile user={user} {...props} />} />
+       
         <Route exact path="/Deals" render={(props) => 
         <Deals user={user} {...props} />} /> 
         <Route exact path="/new-thread" render={(props) => 

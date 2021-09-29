@@ -16,7 +16,7 @@ function Header(props) {
     return (
         <>
             <header className="homepage-header">
-                <h1 className="homepage-header-text">TravelBug✈️ </h1>
+                <h1 className="homepage-header-text">TravelBug<img src="https://img.icons8.com/ios-filled/30/000000/airplane-mode-on.png"/></h1>
                 <div id="auth">
                     {user?.name ?
                         <div>
