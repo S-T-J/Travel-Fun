@@ -15,8 +15,8 @@ function Header(props) {
 
     return (
         <>
-            <header>
-                <h1>Boiling  🍜🥚🍲</h1>
+            <header className="homepage-header">
+                <h1 className="homepage-header-text">TravelBug✈️ </h1>
                 <div id="auth">
                     {user?.name ?
                         <div>
@@ -28,18 +28,19 @@ function Header(props) {
                 </div>
 
             </header>
-
+<div className="navbar">
             <nav>
                 <Link to="/">Home</Link>
-                <Link to="/all-posts">All</Link>
+                <Link to="/all-posts">Tips & Tricks</Link>
                 {user?.name ?
                     <>
-                        <Link to="/new-post">New</Link>
+                        <Link to="/new-post">Attractions</Link>
+                        <Link to="/deals">Deals</Link>
                         <Link to="/profile">Profile</Link>
                     </> :
                     null}
-
             </nav>
+            </div>
         </>
     );
 }

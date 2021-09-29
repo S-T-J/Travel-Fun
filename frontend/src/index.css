@@ -1,5 +1,6 @@
 body {
   margin: 0 auto;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -27,19 +28,24 @@ nav{
 }
 
 nav a {
-  border: 1px solid black;
-  width: 33vw;
+  border: 1px solid rgb(255, 255, 255);
+  width: 20vw;
   text-align: center;
   padding: 2rem;
-  background: #eee
+  background: #2dc5fa
 }
 
 nav a:hover {
-  background: #ddd
+  background: #259fcc
 }
 
 #auth{
   position: absolute;
   top: 0;
   right:0;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
 }
