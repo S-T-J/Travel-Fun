@@ -5,13 +5,13 @@ import actions from '../api';
 function NewThread(props) {
 
     let [title, setTitle] = useState('')
-    let [Thread, setThread] = useState('')
+    let [thread, setThread] = useState('')
 
 
     const handleSubmit = async e => {
         e.preventDefault()
-        let res = await actions.createNewThread({ title, Thread })
-        props.history.push('/all-Threads')
+        let res = await actions.createNewThread({ title, thread })
+        props.history.push('/all-threads')
     }
 
 

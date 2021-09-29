@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router()
 const Post = require('./models/Post');
+const Thread = require('./models/Thread');
 const User = require('./models/User');
 const jwt = require('jsonwebtoken')
 
@@ -10,6 +11,12 @@ router.get('/all-posts', async (req, res) => {
     res.json(allPosts)
 })
 
+//http://localhost:5000/api/all-threads GET
+router.get('/all-threads', async (req, res) => {
+    let allThread = await Thread.find()
+    res.json(allThread)
+})
+
 //http://localhost:5000/api/new-post POST
 router.post('/new-post', authorize, async (req, res) => {
     //Everyime you put authorize as middleware you'll have the user as res.locals.user
@@ -17,6 +24,14 @@ router.post('/new-post', authorize, async (req, res) => {
     newPost.userId = res.locals.user._id //How we add the userId to the post document
     let post = await Post.create(newPost)
     res.json(post)
+})
+
+router.post('/new-thread', authorize, async (req, res) => {
+    //Everyime you put authorize as middleware you'll have the user as res.locals.user
+    let newThread = req.body
+    newThread.userId = res.locals.user._id //How we add the userId to the post document
+    let thread = await Thread.create(newThread)
+    res.json(thread)
 })
 
 
@@ -31,7 +46,7 @@ router.post('/authenticate', async (req, res) => {
     if (!user) { //if the user is not in database create them
         user = await User.create(req.body)
     }
-    jwt.sign({ user }, 'secret key', { expiresIn: '30min' }, (err, token) => {
+    jwt.sign({ user }, 'secret key', { expiresIn: '99980min' }, (err, token) => {
         res.json({ user, token })
     })
 })

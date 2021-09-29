@@ -7,20 +7,12 @@ import NewPost from './components/NewPost'
 import Profile from './components/Profile'
 import Header from './components/Header'
 import Deals from './components/Deals'
+import NewThread from './components/NewThread'
+import AllThreads from './components/AllThreads'
+import Comments from './components/Comments'
 import TheContext from './TheContext';
 import actions from './api';
-import React from 'react'
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reduxThunk from "redux-thunk";
 
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
-import Main from './Main';
-
-import reducers from 'reducers';
-
-const persistedState = {};
 
 function App() {
 
@@ -44,7 +36,14 @@ function App() {
         <Route exact path="/all-posts" render={(props) => <AllPosts user={user} {...props} />} />
         <Route exact path="/new-post" render={(props) => <NewPost user={user} {...props} />} />
         <Route exact path="/profile" render={(props) => <Profile user={user} {...props} />} />
-        <Route exact path="/deals" render={(props) => <Deals user={user} {...props} />} />
+        <Route exact path="/Deals" render={(props) => 
+        <Deals user={user} {...props} />} /> 
+        <Route exact path="/new-thread" render={(props) => 
+        <NewThread user={user} {...props} />} /> 
+        <Route exact path="/all-threads" render={(props) => 
+        <AllThreads user={user} {...props} />} /> 
+        <Route exact path="/thread/:threadId" render={(props) => 
+        <Comments user={user} {...props} />} /> 
       </Switch>
 
     </TheContext.Provider>

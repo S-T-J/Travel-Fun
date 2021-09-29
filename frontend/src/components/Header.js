@@ -36,6 +36,8 @@ function Header(props) {
                     <>
                         <Link to="/new-post">Attractions</Link>
                         <Link to="/deals">Deals</Link>
+                        <Link to="/new-thread">New Thread</Link>
+                        <Link to="/all-threads">All Threads</Link>
                         <Link to="/profile">Profile</Link>
                     </> :
                     null}

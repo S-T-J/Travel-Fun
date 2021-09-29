@@ -12,8 +12,14 @@ const actions = {
     getAllPosts: async () => {
         return await axios.get(`${SERVER_URL}/all-posts`, createHeader())
     },
+    getAllThreads: async () => {
+        return await axios.get(`${SERVER_URL}/all-threads`, createHeader())
+    },
     createNewPost: async ({ title, post }) => {
         return await axios.post(`${SERVER_URL}/new-post`, { title, post }, createHeader())
+    },
+    createNewThread: async ({ title, thread }) => {
+        return await axios.post(`${SERVER_URL}/new-thread`, { title, thread }, createHeader())
     },
     authenticate: async (user) => {
         let res = await axios.post(`${SERVER_URL}/authenticate`, user)

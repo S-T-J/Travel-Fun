@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import actions from '../api'
+import { Link } from 'react-router-dom'
 
 function AllThreads(props) {
-    const [Threads, setThreads] = useState([])
+    const [threads, setThreads] = useState([])
 
     useEffect(async () => {
         let res = await actions.getAllThreads()
@@ -10,10 +11,11 @@ function AllThreads(props) {
     }, [])
 
     const ShowThreads = () => {
-        return Threads.map((eachThread) => {
+        return threads.map((eachThread) => {
             return (
                 <div key={eachThread._id}>
-                    <h3>{eachThread.title}</h3>
+                    <Link to={`/thread/${eachThread._id}`}>
+                    <h3>{eachThread.title}</h3></Link>
                     <p>{eachThread.thread}</p>
                     <hr></hr>
                 </div>
