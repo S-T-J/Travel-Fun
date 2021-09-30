@@ -9,7 +9,8 @@ import Header from './components/Header'
 import Deals from './components/Deals'
 import NewThread from './components/NewThread'
 import AllThreads from './components/AllThreads'
-import Comments from './components/Comments'
+import NewComment from './components/NewComment'
+import AllComments from './components/AllComments'
 import TheContext from './TheContext';
 import actions from './api';
 
@@ -44,7 +45,9 @@ function App() {
         <Route exact path="/all-threads" render={(props) => 
         <AllThreads user={user} {...props} />} /> 
         <Route exact path="/thread/:threadId" render={(props) => 
-        <Comments user={user} {...props} />} /> 
+        <AllComments user={user} {...props} />} /> 
+        {/* <Route exact path="/comment/:text" render={(props) => 
+        <NewComment user={user} {...props} />} />  */}
       </Switch>
 
     </TheContext.Provider>

@@ -18,8 +18,8 @@ router.get('/all-threads', async (req, res) => {
 	res.json(allThread);
 });
 //http://localhost:5000/api/all-threads GET
-router.get('/all-comments', async (req, res) => {
-	let allComment = await Comment.find();
+router.get('/all-comments/:threadId', async (req, res) => {
+	let allComment = await Comment.find({ threadId: req.params.threadId });
 
 	res.json(allComment);
 });

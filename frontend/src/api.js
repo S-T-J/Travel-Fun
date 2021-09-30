@@ -18,8 +18,9 @@ const actions = {
 	getAllThreads: async () => {
 		return await axios.get(`${SERVER_URL}/all-threads`, createHeader());
 	},
-	getAllComments: async () => {
-		return await axios.get(`${SERVER_URL}/all-comments`, createHeader());
+	getAllComments: async (threadId) => {
+		console.log(threadId);
+		return await axios.get(`${SERVER_URL}/all-comments/${threadId}`, createHeader());
 	},
 	createNewPost: async ({ title, post }) => {
 		return await axios.post(`${SERVER_URL}/new-post`, { title, post }, createHeader());
