@@ -28,6 +28,11 @@ const actions = {
 		return await axios.post(`${SERVER_URL}/new-thread`, { title, thread }, createHeader());
 	},
 
+	createNewComment: async ({ text, threadId }) => {
+		console.log(text, threadId);
+		return await axios.post(`${SERVER_URL}/new-comment`, { text, threadId }, createHeader());
+	},
+
 	authenticate: async (user) => {
 		let res = await axios.post(`${SERVER_URL}/authenticate`, user);
 		localStorage.setItem('token', res.data.token);

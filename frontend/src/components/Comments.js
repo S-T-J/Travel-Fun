@@ -6,7 +6,9 @@ const Comments = (props) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(`Send ${comment} to api.js then routes.js then db`);
+		let res = await actions.createNewComment({ text: comment, threadId: props.match.params.threadId });
+		// console.log(`Send ${comment} to api.js then routes.js then db`);
+		console.log(res);
 	};
 
 	return (

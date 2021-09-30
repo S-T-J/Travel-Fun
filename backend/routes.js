@@ -20,7 +20,16 @@ router.get('/all-threads', async (req, res) => {
 //http://localhost:5000/api/all-threads GET
 router.get('/all-comments', async (req, res) => {
 	let allComment = await Comment.find();
+
 	res.json(allComment);
+});
+
+router.post('/new-comment', authorize, async (req, res) => {
+	console.log(req.body, 'watermelon');
+	let newComment = req.body;
+	newComment.userId = res.locals.user._id;
+	let comment = await Comment.create(newComment);
+	res.json(comment);
 });
 
 //http://localhost:5000/api/new-post POST
