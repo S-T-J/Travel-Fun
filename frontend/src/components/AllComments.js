@@ -26,7 +26,7 @@ function AllComments(props) {
           <h2>{eachComment.upvote}</h2>
           <h3>{eachComment.user}</h3>
           <p>{eachComment.text}</p>
-          <button onClick={(e) => handleClick(eachComment_id, i)}>
+          <button onClick={(e) => handleClick(eachComment._id, i)}>
             UpVote
           </button>
           <hr />
