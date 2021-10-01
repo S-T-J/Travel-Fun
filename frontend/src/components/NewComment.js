@@ -9,19 +9,19 @@ const Comments = (props) => {
 		let res = await actions.createNewComment({ text: comment, threadId: props.match.params.threadId });
 		// console.log(`Send ${comment} to api.js then routes.js then db`);
 
-		console.log(res.data); //Response from backend with your new comment.{ tetxt:'b;ah', _id: '345fgdgsdg'}
+		console.log("res.data", res); //Response from backend with your new comment.{ tetxt:'b;ah', _id: '345fgdgsdg'}
 
 		let newComments = [ ...props.comments ]; //Copy of all previous comments on the page
 		newComments.push(res.data); //Push ouur new commennt into he copy
 		props.setComments(newComments); //Set to state.  Replace old list with new list so we see it wihtoutt reload
+		setComment("")
 	};
 
 	return (
-		<div>
-			Comments {props.match.params.threadId}
+		<div className="allcomments-form">
 			<form onSubmit={handleSubmit}>
-				<input onChange={(e) => setComment(e.target.value)} type="text" placeholder="Comment " />
-				<button>Submit</button>
+				<input className="input" value={comment} onChange={(e) => setComment(e.target.value)} type="text" placeholder="Comment " />
+				<button className="allcomments-button">Submit</button>
 			</form>
 		</div>
 	);
