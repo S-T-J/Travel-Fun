@@ -23,7 +23,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #EEE;
+  background-color: white;
 }
 
 .navbar {
@@ -39,12 +39,44 @@ code {
 }
 
 .homepage-title {
-  flex: 1.5;
+  flex: 2;
+}
+
+.homepage-title h1 {
+  padding-left: 2rem;
+  color: #1384ae;
 }
 
 .navbar {
   flex: 1;
   white-space: nowrap;
+}
+
+#auth {
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+}
+
+.headerimage {
+  background-image: url(http://localhost:3000/headerimage.jpg);
+  height: 100vh;
+  width: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.headerimage div {
+  margin-top: 40vh;
+  /* background-color: white;
+  padding: 300px */
+}
+
+#new-thread input {
+  margin: 2rem;
 }
 /* 
 nav {
@@ -59,12 +91,14 @@ nav a {
   /* border: 1px solid rgb(255, 255, 255); */
   /* width: 20vw; */
   padding: 1rem;
-  background: #2dc5fa;
-  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+  color: #1384ae;
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-decoration: none;
 }
 
 nav a:hover {
-  background: #259fcc;
+  background: #EEE;
 }
 
 
@@ -172,14 +206,15 @@ h1 {
   border-width: 1px;
   border-style: solid;
   border-color: #b7ddf2;
-  padding-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 #new-thread label {
   font-size: 11px;
   font-weight: bold;
   text-align: left;
-  padding-top: 5rem;
+  display: block;
+  padding-top: 1rem;
 }
 
 #new-thread input {
@@ -187,7 +222,7 @@ h1 {
   padding: 4px 2px;
   border: solid 1px #aacfe4;
   width: 370px;
-  margin: 2px 0 20px 10px;
+  margin: 20px 0 20px 10px;
   display: block;
   text-align: left;
 }

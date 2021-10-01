@@ -1,9 +1,12 @@
 import React from 'react';
+// import './index.css';
 
-function Home(props) {
+const Home = () => {
     return (
-        <div>
-            Home
+        <div className="headerimage">
+            <div>
+                {/* Scroll Down */}
+            </div>
         </div>
     );
 }
