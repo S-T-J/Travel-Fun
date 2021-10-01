@@ -14,35 +14,59 @@ code {
 }
 
 .App {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 }
 
+.homepage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #EEE;
+}
+
+.navbar {
+
+}
+
+.homepage-header>div {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.homepage-title {
+  flex: 1.5;
+}
+
+.navbar {
+  flex: 1;
+  white-space: nowrap;
+}
+/* 
 nav {
   display: flex;
   width: 100vw;
-  justify-content: space-around;
+  justify-content: flex-end;
   margin-bottom: 50px;
-}
+  
+} */
 
 nav a {
-  border: 1px solid rgb(255, 255, 255);
-  width: 20vw;
-  text-align: center;
-  padding: 2rem;
+  /* border: 1px solid rgb(255, 255, 255); */
+  /* width: 20vw; */
+  padding: 1rem;
   background: #2dc5fa;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav a:hover {
   background: #259fcc;
 }
 
-#auth {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
 
 h1 {
   padding: 0;
@@ -154,7 +178,7 @@ h1 {
 #new-thread label {
   font-size: 11px;
   font-weight: bold;
-  text-align: right;
+  text-align: left;
   padding-top: 5rem;
 }
 
@@ -165,6 +189,7 @@ h1 {
   width: 370px;
   margin: 2px 0 20px 10px;
   display: block;
+  text-align: left;
 }
 
 #input2 {

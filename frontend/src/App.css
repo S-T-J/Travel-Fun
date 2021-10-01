@@ -1,4 +1,4 @@
-.homepage-header {
+/* .homepage-header {
     background-image: url(http://localhost:3000/header.png);
     height: 20vh;
     width: 100%;
@@ -9,12 +9,3 @@
     /* display: flex; */
     /* align-items: center; */
     /* justify-content: flex-end; */
-}
-
-.homepage-header-text {
-    height: 50vh;
-}
-
-.navbar {
-    
-}

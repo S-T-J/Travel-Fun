@@ -26,7 +26,6 @@ function NewThread(props) {
         <input
           onChange={(e) => setThread(e.target.value)}
           type="text"
-          placeholder="Text (optional)"
           id="input2"
         />
         <button className="new-thread-button">Submit</button>

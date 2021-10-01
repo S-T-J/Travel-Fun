@@ -12,25 +12,15 @@ function Header(props) {
   let { user, setUser, getUser } = useContext(TheContext);
 
   return (
-    <>
-      <header className="homepage-header">
-        <h1 className="homepage-header-text">
+    <header className="homepage-header">
+      <div className="homepage-title">
+        <h1>
           TravelBug
           <img src="https://img.icons8.com/ios-filled/30/000000/airplane-mode-on.png" />
         </h1>
-        <div id="auth">
-          {user?.name ? (
-            <div>
-              <h4>{user?.name}</h4>
-              <button onClick={logOut}>Log Out</button>
-            </div>
-          ) : (
-            <Auth getUser={getUser} />
-          )}
-        </div>
-      </header>
+      </div>
       <div className="navbar">
-        <nav>
+        <nav className="nav-div">
           <Link to="/">Home</Link>
           {/* <Link to="/all-posts">Tips & Tricks</Link>
                 {user?.name ? */}
@@ -42,8 +32,18 @@ function Header(props) {
             <Link to="/profile">Profile</Link>
           </>{" "}
         </nav>
+        <div id="auth">
+          {user?.name ? (
+            <div>
+              <h4>{user?.name}</h4>
+              <button onClick={logOut}>Log Out</button>
+            </div>
+          ) : (
+            <Auth getUser={getUser} />
+          )}
+        </div>
       </div>
-    </>
+    </header>
   );
 }
 

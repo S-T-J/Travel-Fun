@@ -37,11 +37,11 @@ function AllComments(props) {
     return comments.map((eachComment, i) => {
       return (
         <div key={eachComment._id}>
-			<div className="user-section">
-				<span className="user-image-section">{eachComment.users && <img className="user-image" src={eachComment.users[0].imageUrl}/>}</span>
-				<span className="user-name-section">{eachComment.users && eachComment.users[0].name}</span>
-			</div>
-			<p>{eachComment.text}</p>
+          <div className="user-section">
+            <span className="user-image-section">{eachComment.userId && <img className="user-image" src={eachComment.userId.imageUrl} />}</span>
+            <span className="user-name-section">{eachComment.userId && eachComment.userId.name}</span>
+          </div>
+          <p>{eachComment.text}</p>
           <div className="vote-section">
             <span className="upvote-section">
               <span>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import actions from '../api';
 
 const Comments = (props) => {
-	let [ comment, setComment ] = useState('');
+	let [comment, setComment] = useState('');
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -11,8 +11,8 @@ const Comments = (props) => {
 
 		console.log("res.data", res); //Response from backend with your new comment.{ tetxt:'b;ah', _id: '345fgdgsdg'}
 
-		let newComments = [ ...props.comments ]; //Copy of all previous comments on the page
-		newComments.push(res.data); //Push ouur new commennt into he copy
+		let newComments = [...props.comments]; //Copy of all previous comments on the page
+		newComments.unshift(res.data); //Push ouur new commennt into he copy
 		props.setComments(newComments); //Set to state.  Replace old list with new list so we see it wihtoutt reload
 		setComment("")
 	};

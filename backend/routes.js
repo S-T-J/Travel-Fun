@@ -21,18 +21,19 @@ router.get("/all-threads", async (req, res) => {
 
 //http://localhost:5000/api/all-threads GET
 router.get("/all-comments/:threadId", async (req, res) => {
-	let allComment = await Comment.aggregate([
-		{
-		  $lookup: {
-			from: "users",
-			localField: "userId",
-			foreignField: "_id",
-			as: "users",
-		  },
-		},
-	  ]);
-	
-	  allComment = allComment.filter(field => field.threadId == req.params.threadId)
+  // let allComment = await Comment.aggregate([
+  //   {
+  //     $lookup: {
+  //       from: "users",
+  //       localField: "userId",
+  //       foreignField: "_id",
+  //       as: "users",
+  //     },
+  //   },
+  // ]);
+  let allComment = await Comment.find({ threadId: req.params.threadId }).populate("userId")
+  console.log(allComment)
+  // allComment = allComment.filter(field => field.threadId == req.params.threadId)
   res.json(allComment);
 });
 
@@ -40,10 +41,11 @@ router.post("/new-comment", authorize, async (req, res) => {
   console.log(req.body, "watermelon");
   let newComment = req.body;
   newComment.userId = res.locals.user._id;
-  let comment = await Comment.create(newComment);
+  let comment = await Comment.create(newComment)
+  comment.populate("userId")
   let user = await User.findById(comment.userId)
   console.log("user", user)
-  let finalComment = {...comment._doc, users: [user]}
+  let finalComment = { ...comment._doc, users: [user] }
   console.log(finalComment)
   res.json(finalComment);
 });
@@ -76,7 +78,7 @@ router.post("/upvote", authorize, async (req, res) => {
     req.body.commentId,
     { $inc: { upvote: 1 } },
     { new: true }
-  );
+  ).populate("userId")
   console.log(updatedUpvote);
   res.json(updatedUpvote);
 });
@@ -87,7 +89,7 @@ router.post("/downvote", authorize, async (req, res) => {
     req.body.commentId,
     { $inc: { downvote: 1 } },
     { new: true }
-  );
+  ).populate("userId")
   console.log(updatedDownvote);
   res.json(updatedDownvote);
 });
