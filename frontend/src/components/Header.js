@@ -41,7 +41,6 @@ function Header(props) {
             <Link to="/all-threads">All Threads</Link>
             <Link to="/profile">Profile</Link>
           </>{" "}
-          : null}
         </nav>
       </div>
     </>
