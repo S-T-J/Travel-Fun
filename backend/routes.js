@@ -15,26 +15,28 @@ router.get("/all-posts", async (req, res) => {
 
 //http://localhost:5000/api/all-threads GET
 router.get("/all-threads", async (req, res) => {
-  let allThread = await Thread.find();
+  let allThread = await Thread.find().populate("userId");
   res.json(allThread);
 });
 
-//http://localhost:5000/api/all-threads GET
+//http://localhost:5000/api/top-threads GET
+router.get("/top-threads", async (req, res) => {
+  let topThreads = await Thread.find().sort({ upvote: -1 }).sort({ downvote: 1 }).limit(5).populate("userId");
+  res.json(topThreads);
+});
+
+//http://localhost:5000/api/all-comments/:threadId GET
 router.get("/all-comments/:threadId", async (req, res) => {
-  // let allComment = await Comment.aggregate([
-  //   {
-  //     $lookup: {
-  //       from: "users",
-  //       localField: "userId",
-  //       foreignField: "_id",
-  //       as: "users",
-  //     },
-  //   },
-  // ]);
   let allComment = await Comment.find({ threadId: req.params.threadId }).populate("userId")
   console.log(allComment)
-  // allComment = allComment.filter(field => field.threadId == req.params.threadId)
   res.json(allComment);
+});
+
+//http://localhost:5000/api//thread/:threadId GET
+router.get("/thread/:threadId", async (req, res) => {
+  const thread = await Thread.findOne({ _id: req.params.threadId })
+  console.log(thread)
+  res.json(thread);
 });
 
 router.post("/new-comment", authorize, async (req, res) => {
@@ -87,6 +89,28 @@ router.post("/downvote", authorize, async (req, res) => {
   // console.log('did i  hit this!?', req.body, req.body.commentId, '???');
   let updatedDownvote = await Comment.findByIdAndUpdate(
     req.body.commentId,
+    { $inc: { downvote: 1 } },
+    { new: true }
+  ).populate("userId")
+  console.log(updatedDownvote);
+  res.json(updatedDownvote);
+});
+
+router.post("/upvote-thread", authorize, async (req, res) => {
+  // console.log('did i  hit this!?', req.body, req.body.commentId, '???');
+  let updatedUpvote = await Thread.findByIdAndUpdate(
+    req.body.threadId,
+    { $inc: { upvote: 1 } },
+    { new: true }
+  ).populate("userId")
+  console.log(updatedUpvote);
+  res.json(updatedUpvote);
+});
+
+router.post("/downvote-thread", authorize, async (req, res) => {
+  // console.log('did i  hit this!?', req.body, req.body.commentId, '???');
+  let updatedDownvote = await Thread.findByIdAndUpdate(
+    req.body.threadId,
     { $inc: { downvote: 1 } },
     { new: true }
   ).populate("userId")

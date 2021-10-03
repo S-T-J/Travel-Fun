@@ -17,6 +17,12 @@ const actions = {
   getAllPosts: async () => {
     return await axios.get(`${SERVER_URL}/all-posts`, createHeader());
   },
+  getTopThreads: async () => {
+    return await axios.get(`${SERVER_URL}/top-threads`, createHeader());
+  },
+  getThreadInfo: async (threadId) => {
+    return await axios.get(`${SERVER_URL}/thread/${threadId}`, createHeader());
+  },
   getAllThreads: async () => {
     return await axios.get(`${SERVER_URL}/all-threads`, createHeader());
   },
@@ -63,6 +69,22 @@ const actions = {
     return await axios.post(
       `${SERVER_URL}/downvote`,
       { commentId },
+      createHeader()
+    );
+  },
+
+  upVoteThread: async (threadId) => {
+    return await axios.post(
+      `${SERVER_URL}/upvote-thread`,
+      { threadId },
+      createHeader()
+    );
+  },
+
+  downVoteThread: async (threadId) => {
+    return await axios.post(
+      `${SERVER_URL}/downvote-thread`,
+      { threadId },
       createHeader()
     );
   },

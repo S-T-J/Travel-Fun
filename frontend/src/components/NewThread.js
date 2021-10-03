@@ -15,20 +15,28 @@ function NewThread(props) {
   return (
     <div id="new-thread" className="new-thread-div">
       <form className="new-thread-form" onSubmit={handleSubmit}>
-        <h1>New Thread</h1>
-        <label>Title:</label>
-        <input
-          onChange={(e) => setTitle(e.target.value)}
-          type="text"
-          id="input1"
-        />
-        <label>Text (optional):</label>
-        <input
-          onChange={(e) => setThread(e.target.value)}
-          type="text"
-          id="input2"
-        />
-        <button className="new-thread-button">Submit</button>
+        <div className="form-control">
+          <h1>New Thread</h1>
+        </div>
+        <div className="form-control">
+          <label>Title:</label>
+          <input
+            onChange={(e) => setTitle(e.target.value)}
+            type="text"
+            className="newthread-input"
+          />
+        </div>
+        <div className="form-control">
+          <label>Text (optional):</label>
+          <textarea
+            onChange={(e) => setThread(e.target.value)}
+            type="text"
+            className="newthread-textarea"
+          />
+        </div>
+        <div className="form-control">
+          <button className="new-thread-button">Submit</button>
+        </div>
       </form>
     </div>
   );

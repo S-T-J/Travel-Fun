@@ -4,12 +4,19 @@ import NewComment from "./NewComment";
 
 function AllComments(props) {
   const [comments, setComments] = useState([]);
+  const [thread, setThread] = useState({ title: "" })
   console.log(props);
 
   useEffect(async () => {
     let res = await actions.getAllComments(props.match.params.threadId);
     setComments(res.data.reverse());
+    let threadInfo = await actions.getThreadInfo(props.match.params.threadId)
+    console.log(props.match.params.threadId, threadInfo)
+    setThread(threadInfo.data)
   }, []);
+
+  useEffect(async () => {
+  }, [props.match.params.threadId])
 
   const upVote = async (whichCommentId, i) => {
     console.log("click", whichCommentId);
@@ -74,6 +81,9 @@ function AllComments(props) {
 
   return (
     <div className="allcomments-page">
+      <h2>
+        Thread: {thread.title}
+      </h2>
       <h2 className="allcomments-header">All Comments</h2>
       <NewComment {...props} comments={comments} setComments={setComments} />
       <ShowComments />

@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap');
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0 auto;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,6 +14,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.container {
+  max-width: 3000px;
+  margin: 0 auto;
 }
 
 .App {
@@ -57,16 +65,46 @@ code {
   padding-bottom: 2rem;
 }
 
-.headerimage {
+.home-headerimage {
   background-image: url(http://localhost:3000/headerimage.jpg);
   height: 100vh;
   width: auto;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 40px;
+}
+
+.home-showtopthreads {
+  background-color: rgba(255, 255, 255, 0.508);
+  margin-top: -30vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+  padding: 1.5rem 7rem 1.5rem 7rem;
+  border-radius: 1rem;
+  box-sizing: border-box;
+}
+
+.home-topfivetitle {
+  display: inline-block;
+  color: #1384ae;
+  font-weight: 900;
+  font-size: 2rem;
+  border-bottom: 1px solid grey;
+  padding-bottom: 1rem;
+}
+
+.thread-info-section h2 a {
+  color: #1384ae;
+  text-decoration: none;
+}
+
+.thread-info-section h2 a:hover {
+  color: #0a4155;
+  text-decoration: none;
 }
 
 .headerimage div {
@@ -75,9 +113,6 @@ code {
   padding: 300px */
 }
 
-#new-thread input {
-  margin: 2rem;
-}
 /* 
 nav {
   display: flex;
@@ -197,6 +232,22 @@ h1 {
   border-style: solid;
   border-color: #b7ddf2;
   background: #ebf4fb;
+  max-width: 600px;
+}
+
+.form-control {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-control label{
+  font-size: 1.5rem;
+  width: 160px;
+}
+
+.form-control > * {
+  display: block;
 }
 
 .new-thread h1 {
@@ -209,24 +260,23 @@ h1 {
   margin-bottom: 50px;
 }
 
-#new-thread label {
-  font-size: 11px;
-  font-weight: bold;
-  text-align: left;
-  display: block;
-  padding-top: 1rem;
-}
-
 #new-thread input {
   font-size: 11px;
   padding: 4px 2px;
   border: solid 1px #aacfe4;
-  width: 370px;
-  margin: 20px 0 20px 10px;
   display: block;
   text-align: left;
 }
 
-#input2 {
+.newthread-input {
+  width: 100%;
+}
+
+.newthread-textarea {
   height: 10rem;
+  width: 100%;
+}
+
+.new-thread-button {
+  margin-left: 125px;
 }

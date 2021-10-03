@@ -30,27 +30,29 @@ function App() {
   }
 
   return (
-    <TheContext.Provider value={{ user, setUser, getUser }}>
-      <Header />
-      <Switch>
-        <Route exact path="/" render={(props) => <Home user={user} {...props} />} />
-        <Route exact path="/all-posts" render={(props) => <AllPosts user={user} {...props} />} />
-        <Route exact path="/new-post" render={(props) => <NewPost user={user} {...props} />} />
-        <Route exact path="/profile" render={(props) => <Profile user={user} {...props} />} />
-       
-        <Route exact path="/Deals" render={(props) => 
-        <Deals user={user} {...props} />} /> 
-        <Route exact path="/new-thread" render={(props) => 
-        <NewThread user={user} {...props} />} /> 
-        <Route exact path="/all-threads" render={(props) => 
-        <AllThreads user={user} {...props} />} /> 
-        <Route exact path="/thread/:threadId" render={(props) => 
-        <AllComments user={user} {...props} />} /> 
-        {/* <Route exact path="/comment/:text" render={(props) => 
-        <NewComment user={user} {...props} />} />  */}
-      </Switch>
+    <div className="container">
+      <TheContext.Provider value={{ user, setUser, getUser }}>
+        <Header />
+        <Switch>
+          <Route exact path="/" render={(props) => <Home user={user} {...props} />} />
+          <Route exact path="/all-posts" render={(props) => <AllPosts user={user} {...props} />} />
+          <Route exact path="/new-post" render={(props) => <NewPost user={user} {...props} />} />
+          <Route exact path="/profile" render={(props) => <Profile user={user} {...props} />} />
 
-    </TheContext.Provider>
+          <Route exact path="/Deals" render={(props) =>
+            <Deals user={user} {...props} />} />
+          <Route exact path="/new-thread" render={(props) =>
+            <NewThread user={user} {...props} />} />
+          <Route exact path="/all-threads" render={(props) =>
+            <AllThreads user={user} {...props} />} />
+          <Route exact path="/thread/:threadId" render={(props) =>
+            <AllComments user={user} {...props} />} />
+          {/* <Route exact path="/comment/:text" render={(props) => 
+        <NewComment user={user} {...props} />} />  */}
+        </Switch>
+
+      </TheContext.Provider>
+    </div>
   );
 }
 
