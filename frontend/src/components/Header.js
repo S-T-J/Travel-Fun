@@ -15,8 +15,7 @@ function Header(props) {
     <header className="homepage-header">
       <div className="homepage-title">
         <h1>
-          TravelBug
-          <img src="https://img.icons8.com/ios-filled/30/000000/airplane-mode-on.png" />
+          <img className="logo" src="/logo.jpg" />
         </h1>
       </div>
       <div className="navbar">

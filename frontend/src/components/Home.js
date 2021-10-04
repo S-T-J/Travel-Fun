@@ -53,7 +53,7 @@ const Home = () => {
 
     return (
         <>
-            <div className="home-headerimage">
+            <div className="home-headerimage" style={{ backgroundImage: `url(headerimage.jpg)` }}>
             </div>
             <div className="home-showtopthreads">
                 <h2 className="home-topfivetitle">Top 5 Threads:</h2>

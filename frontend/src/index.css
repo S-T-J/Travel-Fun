@@ -34,8 +34,10 @@ code {
   background-color: white;
 }
 
-.navbar {
-
+.logo {
+  width: 25%;
+  height: auto;
+  padding: none;
 }
 
 .homepage-header>div {
@@ -66,11 +68,11 @@ code {
 }
 
 .home-headerimage {
-  background-image: url(http://localhost:3000/headerimage.jpg);
   height: 100vh;
   width: auto;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +81,7 @@ code {
 
 .home-showtopthreads {
   background-color: rgba(255, 255, 255, 0.508);
-  margin-top: -30vh;
+  margin-top: -25vh;
   margin-left: auto;
   margin-right: auto;
   max-width: 1000px;
@@ -95,6 +97,11 @@ code {
   font-size: 2rem;
   border-bottom: 1px solid grey;
   padding-bottom: 1rem;
+}
+
+body {
+  background-color: #d0d4d7;
+  height: 100%;
 }
 
 .thread-info-section h2 a {
