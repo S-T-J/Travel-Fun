@@ -59,6 +59,29 @@ const Home = () => {
                 <h2 className="home-topfivetitle">Top 5 Threads:</h2>
                 <ShowTopThreads />
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <footer>
+                <div className="home-footercontainer">
+                    <div className="home-logo">
+                        <img className="logo-footer" src="/logofooter.jpg" />
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <p>
+                        Created by
+                        <a target="_blank" href="https://github.com/jbaker825"> Josh</a>
+                        ,
+                        <a target="_blank" href="https://github.com/sarebro77"> Seth</a>
+                        , &
+                        <a target="_blank" href="https://github.com/leonardowestley"> Todd</a>
+                    </p>
+                </div>
+            </footer>
         </>
     );
 }

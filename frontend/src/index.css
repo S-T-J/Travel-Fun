@@ -11,6 +11,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+footer {
+  /* display: block; */
+  margin-top: 50px;
+  padding-top: 50px;
+  background-color: #ffffff;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.home-footercontainer p {
+  color: #1384ae;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.home-footercontainer p a {
+  text-decoration: none;
+  color: inherit;
+  color: #e30b14;
+}
+
+
+.home-footercontainer p a:hover {
+  color: #2798e4;
+}
+
+.logo-footer {
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
+  width: 12%;
+  height: 12%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -37,7 +70,7 @@ code {
 .logo {
   width: 25%;
   height: auto;
-  padding: none;
+  padding: 1rem;
 }
 
 .homepage-header>div {
@@ -45,7 +78,6 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
 }
 
 .homepage-title {
@@ -80,7 +112,7 @@ code {
 }
 
 .home-showtopthreads {
-  background-color: rgba(255, 255, 255, 0.508);
+  background-color: rgba(255, 255, 255, 0.597);
   margin-top: -25vh;
   margin-left: auto;
   margin-right: auto;
@@ -88,6 +120,7 @@ code {
   padding: 1.5rem 7rem 1.5rem 7rem;
   border-radius: 1rem;
   box-sizing: border-box;
+  padding-bottom: 4rem;
 }
 
 .home-topfivetitle {
@@ -135,7 +168,7 @@ nav a {
   padding: 1rem;
   color: #1384ae;
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-decoration: none;
 }
 
@@ -240,6 +273,7 @@ h1 {
   border-color: #b7ddf2;
   background: #ebf4fb;
   max-width: 600px;
+  padding-top: 5rem;
 }
 
 .form-control {

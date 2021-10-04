@@ -14,9 +14,7 @@ function Header(props) {
   return (
     <header className="homepage-header">
       <div className="homepage-title">
-        <h1>
-          <img className="logo" src="/logo.jpg" />
-        </h1>
+        <img className="logo" src="/logo.jpg" />
       </div>
       <div className="navbar">
         <nav className="nav-div">
