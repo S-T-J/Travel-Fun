@@ -4,13 +4,31 @@ import actions from "../api";
 
 function NewThread(props) {
   let [title, setTitle] = useState("");
-  let [thread, setThread] = useState("");
+  let [text, setText] = useState("");
+  let [image, setImage] = useState("");
+  let [disabled, setDisabled] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let res = await actions.createNewThread({ title, thread });
+    let res = await actions.createNewThread({ title, text, image });
     props.history.push("/all-threads");
   };
+
+  async function uploadPhoto(e) {
+    setDisabled(true)
+    const [file] = e.target.files
+    const reader = new FileReader()
+    const formData = new FormData()
+    // let file = e.target.files[0]
+    console.log(typeof file, file)
+    formData.append("file", file)
+    formData.append("upload_preset", "zs3vfefq")
+    let res =
+      await axios.post("https://iron-cors-anywhere.herokuapp.com/https://api.cloudinary.com/v1_1/dxv7j2sj6/upload", formData)
+    console.log(res.data)
+    setDisabled(false)
+    setImage(res.data.secure_url)
+  }
 
   return (
     <div id="new-thread" className="new-thread-div">
@@ -21,6 +39,7 @@ function NewThread(props) {
         <div className="form-control">
           <label>Title:</label>
           <input
+            required
             onChange={(e) => setTitle(e.target.value)}
             type="text"
             className="newthread-input"
@@ -29,13 +48,14 @@ function NewThread(props) {
         <div className="form-control">
           <label>Text (optional):</label>
           <textarea
-            onChange={(e) => setThread(e.target.value)}
+            onChange={(e) => setText(e.target.value)}
             type="text"
             className="newthread-textarea"
           />
         </div>
+        <input type="file" onChange={uploadPhoto} />
         <div className="form-control">
-          <button className="new-thread-button">Submit</button>
+          <button disabled={disabled} className="new-thread-button">Submit</button>
         </div>
       </form>
     </div>

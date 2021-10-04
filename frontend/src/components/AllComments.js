@@ -82,8 +82,10 @@ function AllComments(props) {
   return (
     <div className="allcomments-page">
       <h2>
-        Thread: {thread.title}
+        {thread.title}
       </h2>
+      <h3>{thread.text}</h3>
+      <img src={thread.image} />
       <h2 className="allcomments-header">All Comments</h2>
       <NewComment {...props} comments={comments} setComments={setComments} />
       <ShowComments />

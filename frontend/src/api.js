@@ -40,10 +40,10 @@ const actions = {
       createHeader()
     );
   },
-  createNewThread: async ({ title, thread }) => {
+  createNewThread: async ({ title, text, image }) => {
     return await axios.post(
       `${SERVER_URL}/new-thread`,
-      { title, thread },
+      { title, text, image },
       createHeader()
     );
   },

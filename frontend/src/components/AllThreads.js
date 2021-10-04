@@ -40,12 +40,15 @@ function AllThreads(props) {
                         <h2>
                             <Link to={`/thread/${eachThread._id}`}>{eachThread.title}</Link>
                         </h2>
+                        <p>
+                            {eachThread.text}
+                        </p>
+                        <img src={eachThread.image} />
                     </div>
                     <div className="user-section">
                         <span className="user-image-section">{eachThread.userId && <img className="user-image" src={eachThread.userId.imageUrl} />}</span>
                         <span className="user-name-section">{eachThread.userId && eachThread.userId.name}</span>
                     </div>
-                    <p>{eachThread.text}</p>
                     <div className="vote-section">
                         <span className="upvote-section">
                             <span>
