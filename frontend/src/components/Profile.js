@@ -4,12 +4,10 @@ import TheContext from '../TheContext';
 function Profile(props) {
     let { user } = useContext(TheContext)
     return (
-        <div>
-            Profile My name is
-            <div> Prop Driilling: {props.user?.name}</div>
-
-
-            <div> Context: {user?.name}</div>
+        <div className="profile-page">
+            Profile
+            <h2 className="profile-page-name">My Name is: {props.user?.name}</h2>
+            {/* <div> Context: {user?.name}</div> */}
         </div>
     );
 }

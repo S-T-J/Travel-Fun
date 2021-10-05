@@ -272,7 +272,20 @@ h1 {
 }
 
 .allcomments-page {
-  padding-left: 2rem;
+  background-color: rgba(255, 255, 255, 0.597);
+  margin-top: -25vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+  padding: 1.5rem 7rem 1.5rem 7rem;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding-bottom: 4rem;
+}
+
+.allcomments-setcomments p {
+  color: #259fcc;
+  font-size: 1.2rem;
 }
 
 .allcomments-header {
@@ -340,6 +353,29 @@ h1 {
   max-width: 1000px;
   border-radius: 1rem;
   box-sizing: border-box;
+}
+
+.new-thread-form {
+  padding: 1.5rem 7rem 1.5rem 7rem;
+}
+
+.profile-page {
+  background-color: rgba(255, 255, 255, 0.597);
+  margin-top: 3vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #1384ae;
+  font-size: 2rem;
+  padding: 1.5rem 7rem 1.5rem 7rem;
+}
+
+.profile-page h2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .form-control {
