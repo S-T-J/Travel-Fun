@@ -13,11 +13,11 @@ body {
 
 footer {
   /* display: block; */
-  margin-top: 50px;
-  padding-top: 50px;
+  margin-top: 35px;
+  padding-top: 35px;
   background-color: #ffffff;
   text-align: center;
-  padding-bottom: 3rem;
+  padding-bottom: 1.2rem;
 }
 
 .home-footercontainer p {
@@ -40,8 +40,8 @@ footer {
 .logo-footer {
   padding-left: 1.8rem;
   padding-right: 1.8rem;
-  width: 12%;
-  height: 12%;
+  width: 10%;
+  height: 10%;
 }
 
 code {
@@ -125,9 +125,9 @@ code {
 
 .home-topfivetitle {
   display: inline-block;
-  color: #1384ae;
+  color: #e30b14;
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 2.5rem;
   border-bottom: 1px solid grey;
   padding-bottom: 1rem;
 }
