@@ -3,18 +3,25 @@ import axios from 'axios';
 import actions from '../api';
 
 const Comments = (props) => {
-	let [comment, setComment] = useState('');
-	let [image, setImage] = useState('');
-	let [disabled, setDisabled] = useState(false);
+	let [ comment, setComment ] = useState('');
+	let [ image, setImage ] = useState('');
+	let [ disabled, setDisabled ] = useState(false);
+
+	console.log(props, '-=-=-');
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		let res = await actions.createNewComment({ text: comment, threadId: props.match.params.threadId, image });
+		let res = await actions.createNewComment({
+			text: comment,
+			threadId: props.match.params.threadId,
+			image,
+			commentId: props.eachComment._id
+		});
 		// console.log(`Send ${comment} to api.js then routes.js then db`);
 
 		console.log('res.data', res); //Response from backend with your new comment.{ tetxt:'b;ah', _id: '345fgdgsdg'}
 
-		let newComments = [...props.comments]; //Copy of all previous comments on the page
+		let newComments = [ ...props.comments ]; //Copy of all previous comments on the page
 		newComments.unshift(res.data); //Push ouur new commennt into he copy
 		props.setComments(newComments); //Set to state.  Replace old list with new list so we see it wihtoutt reload
 		setComment('');
@@ -22,7 +29,7 @@ const Comments = (props) => {
 
 	async function uploadPhoto(e) {
 		setDisabled(true);
-		const [file] = e.target.files;
+		const [ file ] = e.target.files;
 		const reader = new FileReader();
 		const formData = new FormData();
 		// let file = e.target.files[0]
@@ -49,11 +56,11 @@ const Comments = (props) => {
 					type="text"
 					placeholder="Comment "
 				/>
-				<br></br>
-				<br></br>
-				<br></br>
+				<br />
+				<br />
+				<br />
 				<div className="uploadphoto">Upload Photo (optional)</div>
-				<br></br>
+				<br />
 				<input type="file" onChange={uploadPhoto} />
 				<div className="comments-form-control">
 					<button disabled={disabled} className="allcomments-button">

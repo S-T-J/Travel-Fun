@@ -37,9 +37,9 @@ const actions = {
 		return await axios.post(`${SERVER_URL}/new-thread`, { title, text, image }, createHeader());
 	},
 
-	createNewComment: async ({ text, threadId, image }) => {
+	createNewComment: async ({ text, threadId, image, commentId }) => {
 		console.log(text, threadId, image);
-		return await axios.post(`${SERVER_URL}/new-comment`, { text, threadId, image }, createHeader());
+		return await axios.post(`${SERVER_URL}/new-comment`, { text, threadId, image, commentId }, createHeader());
 	},
 
 	upVote: async (commentId) => {
