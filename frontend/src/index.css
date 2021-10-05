@@ -140,11 +140,27 @@ body {
 .thread-info-section h2 a {
   color: #1384ae;
   text-decoration: none;
+  font-size: 2rem;
+}
+
+.allthreads-overall {
+
+}
+
+.allthreads-title {
+  font-size: 2.5rem;
+  color: #e30b14;
+  font-weight: 700;
 }
 
 .thread-info-section h2 a:hover {
   color: #0a4155;
   text-decoration: none;
+}
+
+.thread-info-section p {
+  color: #189ece;
+  font-size: 1.5rem;
 }
 
 .headerimage div {
@@ -239,7 +255,19 @@ h1 {
 }
 
 .allcomments-header {
-  color: skyblue;
+  font-size: 2.5rem;
+  color: #e30b14;
+  font-weight: 700;
+}
+
+.uploadphoto {
+  font-size: 1.2rem;
+  color: #1384ae;
+  font-weight: 500;
+}
+
+.allcomments-header {
+  color: #1384ae;
 }
 
 .allcomments-form {
@@ -257,9 +285,24 @@ h1 {
   font-size: 1.2rem;
   padding: 0.2rem 0.5rem;
   color: white;
-  background-color: red;
+  background-color: #e30b14;
   border: 1px solid grey;
   border-radius: 0 5% 5% 0;
+  margin-top: 1.5rem;
+}
+
+.allcomments-page h2 {
+  color: #1384ae;
+  font-size: 2rem;
+}
+
+.allcomments-page h3 {
+  color: #189ece;
+  font-size: 1.5rem;
+}
+
+.allcomments-setcomments {
+
 }
 
 #new-thread {
@@ -270,8 +313,8 @@ h1 {
 .new-thread-div {
   border-width: 1px;
   border-style: solid;
-  border-color: #b7ddf2;
-  background: #ebf4fb;
+  border-color: #1384ae;
+  background: #1384ae;
   max-width: 600px;
   padding-top: 5rem;
 }
@@ -285,10 +328,26 @@ h1 {
 .form-control label{
   font-size: 1.5rem;
   width: 160px;
+  color: white;
+}
+
+.newthread-imageupload {
+  color: white;
+}
+
+.form-control button {
+  color: #e30b14;
+  background-color: white;
+  border-color: #259fcc;
+  font-size: 1.5rem;
 }
 
 .form-control > * {
   display: block;
+}
+
+.form-control h1 {
+  color: #ffffff;
 }
 
 .new-thread h1 {
@@ -297,14 +356,14 @@ h1 {
   margin-bottom: 8px;
   border-width: 1px;
   border-style: solid;
-  border-color: #b7ddf2;
+  border-color: #1384ae;
   margin-bottom: 50px;
 }
 
 #new-thread input {
   font-size: 11px;
   padding: 4px 2px;
-  border: solid 1px #aacfe4;
+  border: solid 1px #1384ae;
   display: block;
   text-align: left;
 }

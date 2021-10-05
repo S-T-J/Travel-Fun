@@ -35,7 +35,7 @@ function AllThreads(props) {
     const ShowThreads = () => {
         return threads.map((eachThread, i) => {
             return (
-                <div key={eachThread._id}>
+                <div key={eachThread._id} className="allthreads-overall">
                     <div className="thread-info-section">
                         <h2>
                             <Link to={`/thread/${eachThread._id}`}>{eachThread.title}</Link>
@@ -43,7 +43,7 @@ function AllThreads(props) {
                         <p>
                             {eachThread.text}
                         </p>
-                        <img src={eachThread.image} />
+                        <img src={eachThread.image} width="250" height="auto" className="allthreads-image" />
                     </div>
                     <div className="user-section">
                         <span className="user-image-section">{eachThread.userId && <img className="user-image" src={eachThread.userId.imageUrl} />}</span>
@@ -78,7 +78,7 @@ function AllThreads(props) {
     };
 
     return (
-        <div>
+        <div className="allthreads-title">
             All Threads
             <ShowThreads />
         </div>
