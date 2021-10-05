@@ -79,7 +79,7 @@ function AllThreads(props) {
 
     return (
         <div className="allthreads-title">
-            All Threads
+            <span className="allthreads-header-title">All Threads</span>
             <ShowThreads />
         </div>
     );
