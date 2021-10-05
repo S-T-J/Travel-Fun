@@ -308,6 +308,7 @@ h1 {
 #new-thread {
   margin: 0 auto;
   padding: 14px;
+  border-radius: 1rem;
 }
 
 .new-thread-div {
