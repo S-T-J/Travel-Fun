@@ -352,10 +352,12 @@ h1 {
   font-size: 1.5rem;
   width: 160px;
   color: #1384ae;
+  font-weight: 700;
 }
 
 .newthread-imageupload {
   color: #1384ae;
+  font-weight: 700;
 }
 
 .form-control button {
