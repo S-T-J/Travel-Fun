@@ -59,7 +59,7 @@ const Comments = (props) => {
 					<button disabled={disabled} className="allcomments-button">
 						Submit
 					</button>
-				</div>``
+				</div>
 			</form>
 		</div>
 	);
