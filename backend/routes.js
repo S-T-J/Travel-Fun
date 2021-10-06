@@ -86,6 +86,32 @@ router.get('/all-comments/:threadId', async (req, res) => {
 
 	/**** */
 
+
+
+// let total = 0
+
+// let depth = 0
+
+// function findReplies(commentId, obj){
+//   let replies = comments.filter(eachComment => eachComment.commentId == commentId)
+//   obj['replies'] = replies
+
+//   for(let reply of replies){
+//     findReplies(reply._id, reply)
+//     depth++
+//   }
+//   // 
+//   if(depth == comments.length){
+//       console.log(obj, '...')
+//       console.log(JSON.stringify(obj))
+//   }
+// }
+
+// findReplies(null, {name:"first"})
+
+
+
+
 	let allComment = await Comment.find({ threadId: req.params.threadId }).populate('userId');
 	console.log(allComment);
 	res.json(allComment);
