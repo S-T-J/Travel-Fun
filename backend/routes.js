@@ -88,7 +88,7 @@ router.get('/all-comments/:threadId', async (req, res) => {
 
 
 
-// let total = 0
+
 
 // let depth = 0
 
@@ -113,7 +113,36 @@ router.get('/all-comments/:threadId', async (req, res) => {
 
 
 	let allComment = await Comment.find({ threadId: req.params.threadId }).populate('userId');
-	console.log(allComment);
+	//console.log(allComment);
+
+
+	// let depth = 0
+
+
+	// function findReplies(commentId, obj){
+	// 	console.log('do it')
+	// 	let replies = allComment.filter(eachComment => { 
+	// 		console.log(eachComment.commentId, commentId)
+	// 		return eachComment.commentId == commentId
+	// 	})
+	// 	console.log(replies, ' ?')
+	// 	obj['replies'] = replies
+
+	// 	for(let reply of replies){
+	// 		findReplies(reply._id, reply)
+	// 		depth++
+	// 	}
+	// 	// 
+	// 	if(depth == allComment.length){
+	// 		console.log(obj, '...')
+	// 		//setReplies(obj.replies)
+	// 		//   console.log(JSON.stringify(obj))
+	// 	}
+	// }
+
+	// findReplies(null, {name:"first"})
+
+
 	res.json(allComment);
 });
 
