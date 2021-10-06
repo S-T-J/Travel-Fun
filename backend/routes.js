@@ -91,6 +91,43 @@ router.get('/all-comments/:threadId', async (req, res) => {
 	res.json(allComment);
 });
 
+router.get('/nested-comments/:threadId', async (req, res) => {
+	// let comments = await Comment.aggregate([
+	// 	// { $match: { _id: "615cbac00d2c3321c5ea706a" } },
+	// 	{
+	// 		$graphLookup: {
+	// 			from: "comments",
+	// 			startWith: "$commentId",
+	// 			connectFromField: "commentId",
+	// 			connectToField: "_id",
+	// 			as: "allComments",
+	// 			maxDepth: 5
+	// 		}
+	// 	}
+	// ])
+	// console.log(comments)
+	let comments = await Comment.find()
+
+
+	// let allComment = await Comment.find({ threadId: req.params.threadId }).populate('userId');
+	// console.log(allComment);
+	// console.log(comments)
+	let x = getChildComment("615cbac00d2c3321c5ea706a", comments, {})
+	res.json(x);
+});
+
+function getChildComment(commentId, commentsArr, res) {
+	const filteredCommentsArr = commentsArr.filter(c => c.commentId == commentId)
+	if (filteredCommentsArr.length == 0) return
+	console.log(filteredCommentsArr)
+	res.nestedIds = filteredCommentsArr
+	filteredCommentsArr.forEach((c, i) => {
+		console.log(c._id)
+		getChildComment(c._id, commentsArr, res.nestedIds[i])
+	})
+	return res
+}
+
 //http://localhost:5000/api//thread/:threadId GET
 router.get('/thread/:threadId', async (req, res) => {
 	const thread = await Thread.findOne({ _id: req.params.threadId });
@@ -106,7 +143,7 @@ router.post('/new-comment', authorize, async (req, res) => {
 	comment.populate('userId');
 	let user = await User.findById(comment.userId);
 	console.log('user', user);
-	let finalComment = { ...comment._doc, users: [ user ] };
+	let finalComment = { ...comment._doc, users: [user] };
 	console.log(finalComment);
 	res.json(finalComment);
 });

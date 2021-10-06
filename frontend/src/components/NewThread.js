@@ -51,7 +51,12 @@ function NewThread(props) {
           <label>Text (optional):</label>
           <textarea onChange={(e) => setText(e.target.value)} type="text" className="newthread-textarea" />
         </div>
-        <input type="file" onChange={uploadPhoto} className="newthread-imageupload" />
+        <div className="form-control">
+          <label className="form-label">
+            Upload Image
+            <input type="file" onChange={uploadPhoto} className="newthread-imageupload" />
+          </label>
+        </div>
         <div className="form-control">
           <button disabled={disabled} className="new-thread-button">
             Submit

@@ -31,7 +31,7 @@ function Header(props) {
         </nav>
         <div id="auth">
           {user?.name ? (
-            <div>
+            <div className="header-login">
               <h4>{user?.name}</h4>
               <button onClick={logOut}>Log Out</button>
             </div>

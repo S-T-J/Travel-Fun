@@ -43,6 +43,35 @@ footer {
 	height: 10%;
 }
 
+.header-login {
+  text-align: center;
+  border: 1px solid rgb(193, 193, 193);
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  margin-top: 1.4rem;
+  background-color: #1384ae;
+}
+
+#auth > button {
+  margin-top: 1.6rem;
+}
+
+.header-login button{
+  background-color: transparent;
+  border: 0px;
+  color: #e30b14;
+  font-weight: 900;
+  font-size: 17px;
+}
+
+.header-login h4 {
+  margin: 0;
+  margin-top: 1.4rem;
+  color: #ffffff;
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
@@ -66,9 +95,11 @@ code {
 }
 
 .logo {
-	width: 25%;
+  max-width: 300px;
+  width: 100%;
 	height: auto;
 	padding: 1rem;
+  margin-top: -25px;
 }
 
 .homepage-header > div {
@@ -80,6 +111,7 @@ code {
 
 .homepage-title {
 	flex: 2;
+  padding: 1rem;
 }
 
 .homepage-title h1 {
@@ -170,6 +202,10 @@ body {
 	margin-top: 3vh;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.allthreads-title hr {
+  border: 0;
 }
 
 .thread-info-section h2 a:hover {
@@ -352,7 +388,7 @@ h1 {
 }
 
 .new-thread-form {
-	padding: 1.5rem 7rem 1.5rem 7rem;
+	padding: 1.5rem 3rem 1.5rem 3rem;
 }
 
 .profile-page {
@@ -390,6 +426,24 @@ h1 {
 .newthread-imageupload {
 	color: #1384ae;
 	font-weight: 700;
+  visibility: hidden;
+  position: absolute;
+}
+
+.form-control
+.form-label {
+  background-color: #1384ae;
+  color: white;
+  padding: 1rem 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.form-control
+.form-label:hover{
+background-color: #0a4155;
 }
 
 .form-control button {
@@ -398,9 +452,8 @@ h1 {
 	color: white;
 	background-color: #e30b14;
 	border: 1px solid grey;
-	border-radius: 0 5% 5% 0;
+	border-radius: 0.3rem;
 	margin-top: 1.5rem;
-	margin-left: 8.5rem;
 }
 
 .form-control > * {
@@ -437,5 +490,5 @@ h1 {
 }
 
 .new-thread-button {
-	margin-left: 125px;
+  cursor: pointer;
 }
