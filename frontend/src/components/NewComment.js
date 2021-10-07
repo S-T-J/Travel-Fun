@@ -52,7 +52,7 @@ const Comments = (props) => {
 			<form onSubmit={handleSubmit}>
 				<input
 					required
-					className="input"
+					className="replycomment-box"
 					value={comment}
 					onChange={(e) => setComment(e.target.value)}
 					type="text"

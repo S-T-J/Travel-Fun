@@ -10,7 +10,7 @@ function EachComment(props) {
 	const upVote = async (whichCommentId, i) => {
 		let res = await actions.upVote(whichCommentId);
 
-		let newComments = [...comments];
+		// let newComments = [...comments];
 		window.location.reload()
 		// newComments[i] = res.data;
 		// setComments(newComments);
@@ -19,7 +19,7 @@ function EachComment(props) {
 	const downVote = async (whichCommentId, i) => {
 		let res = await actions.downVote(whichCommentId);
 
-		let newComments = [...comments];
+		// let newComments = [...comments];
 		window.location.reload()
 		// newComments[i] = res.data;
 		// setComments(newComments);
