@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import actions from "../api";
 
@@ -6,7 +6,7 @@ const Comments = (props) => {
   let [comment, setComment] = useState("");
   let [image, setImage] = useState("");
   let [disabled, setDisabled] = useState(false);
-
+  const uploadedImage = useRef(null);
   console.log(props, "-=-=-");
 
   const handleSubmit = async (e) => {
@@ -32,7 +32,17 @@ const Comments = (props) => {
   async function uploadPhoto(e) {
     setDisabled(true);
     const [file] = e.target.files;
-    const reader = new FileReader();
+
+    if (file) {
+      const reader = new FileReader();
+      const { current } = uploadedImage;
+      current.file = file;
+      reader.onload = (e) => {
+        current.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
     const formData = new FormData();
     // let file = e.target.files[0]
     console.log(typeof file, file);
@@ -70,6 +80,9 @@ const Comments = (props) => {
             />
           </label>
         </div>
+
+        <img ref={uploadedImage} width="250" height="auto" />
+
         <div className="comments-form-control">
           <button disabled={disabled} className="allcomments-button">
             Submit

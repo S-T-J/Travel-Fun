@@ -8,6 +8,7 @@ function NewThread(props) {
   let [image, setImage] = useState("");
   let [disabled, setDisabled] = useState(false);
   const uploadedImage = useRef(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let res = await actions.createNewThread({ title, text, image });
@@ -18,6 +19,7 @@ function NewThread(props) {
     setDisabled(true);
     const [file] = e.target.files;
     console.log(file);
+
     if (file) {
       const reader = new FileReader();
       const { current } = uploadedImage;
