@@ -5,13 +5,13 @@ import NewComment from './NewComment';
 
 function EachComment(props) {
 	let { eachComment, i, comments, setComments } = props;
-	let [ reply, setReply ] = useState(false);
+	let [reply, setReply] = useState(false);
 
 	const upVote = async (whichCommentId, i) => {
 		let res = await actions.upVote(whichCommentId);
 
-		let newComments = [ ...comments ];
-        window.location.reload()
+		let newComments = [...comments];
+		window.location.reload()
 		// newComments[i] = res.data;
 		// setComments(newComments);
 	};
@@ -19,22 +19,22 @@ function EachComment(props) {
 	const downVote = async (whichCommentId, i) => {
 		let res = await actions.downVote(whichCommentId);
 
-		let newComments = [ ...comments ];
-        window.location.reload()
+		let newComments = [...comments];
+		window.location.reload()
 		// newComments[i] = res.data;
 		// setComments(newComments);
 	};
 
 	return (
 		<div>
+			<p>{eachComment.text}</p>
+			<img src={eachComment.image} width="250" height="auto" />
 			<div className="user-section">
 				<span className="user-image-section">
 					{eachComment.userId && <img className="user-image" src={eachComment.userId.imageUrl} />}
 				</span>
 				<span className="user-name-section">{eachComment.userId && eachComment.userId.name}</span>
 			</div>
-			<p>{eachComment.text}</p>
-			<img src={eachComment.image} width="250" height="auto" />
 			<div className="vote-section">
 				<span className="upvote-section">
 					<span>
@@ -57,8 +57,10 @@ function EachComment(props) {
 					<span className="vote-count">{eachComment.downvote}</span>
 				</span>
 			</div>
-			<button onClick={(e) => setReply(!reply)}>Reply</button>
-			{reply && <NewComment eachComment={eachComment} {...props} />}
+			<div className="reply-button">
+				<button className="reply-buttontwo" onClick={(e) => setReply(!reply)}>Reply</button>
+				{reply && <NewComment eachComment={eachComment} {...props} />}
+			</div>
 			<hr />
 		</div>
 	);

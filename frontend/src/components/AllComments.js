@@ -5,9 +5,9 @@ import EachComment from './EachComment';
 import EachReply from './EachReply';
 
 function AllComments(props) {
-	const [ comments, setComments ] = useState([]);
-	const [ thread, setThread ] = useState({ title: '' });
-	const [ replies, setReplies] = useState([])
+	const [comments, setComments] = useState([]);
+	const [thread, setThread] = useState({ title: '' });
+	const [replies, setReplies] = useState([])
 
 	useEffect(async () => {
 		let res = await actions.getAllComments(props.match.params.threadId);
@@ -21,23 +21,23 @@ function AllComments(props) {
 
 		let depth = 0
 
-		function findReplies(commentId, obj){
+		function findReplies(commentId, obj) {
 			let replies = res.data.reverse().filter(eachComment => eachComment.commentId == commentId)
 			obj['replies'] = replies
 
-			for(let reply of replies){
+			for (let reply of replies) {
 				findReplies(reply._id, reply)
 				depth++
 			}
 			// 
-			if(depth == res.data.length){
+			if (depth == res.data.length) {
 				console.log(obj, '...')
 				setReplies(obj.replies)
 				//   console.log(JSON.stringify(obj))
 			}
 		}
 
-		findReplies(null, {name:"first"})
+		findReplies(null, { name: "first" })
 
 
 	}, []);
@@ -48,38 +48,38 @@ function AllComments(props) {
 	// 		all.push(<div>{each.text}</div>)
 	// 		return each.replies.map(each => {
 	// 			all.push( <div>{each.text}</div> )
-				
+
 	// 		})
 	// 	})
 	// 	return all
 	// }
 
-	
+
 	const ShowReplies = () => {
 		let all = []
 
-		function digDeeper(num,replies){
+		function digDeeper(num, replies) {
 			num++
-			for(let each of replies){
+			for (let each of replies) {
 				all.push(
-					<div style={{marginLeft:(num*100)+'px'}}>{each.text}
-					
-					<EachReply
-					eachComment={each}
-					key={each._id}
-					{...props}
-				/>
+					<div style={{ marginLeft: (num * 100) + 'px' }}>{each.text}
+
+						<EachReply
+							eachComment={each}
+							key={each._id}
+							{...props}
+						/>
 					</div>
-					
+
 				)
 				console.log(each, num)
-				if(each.replies.length > 0){
-					digDeeper(num,each.replies)
+				if (each.replies.length > 0) {
+					digDeeper(num, each.replies)
 				}
 			}
 		}
 
-		digDeeper(0,replies)
+		digDeeper(0, replies)
 		console.log('is this called', all, replies)
 		return all
 	}
@@ -114,7 +114,7 @@ function AllComments(props) {
 			<div className="allcomments-setcomments">
 				{/* <NewComment {...props} comments={comments} setComments={setComments} /> */}
 				{/* <ShowComments {...props} /> */}
-				<ShowReplies {...props}/>
+				<ShowReplies {...props} />
 			</div>
 		</div>
 	);

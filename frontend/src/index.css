@@ -3,6 +3,17 @@
 	box-sizing: border-box;
 }
 
+@media screen and (max-width: 1020px) {
+  #container, #header, #content, #footer {
+    float: none;
+    width: auto;
+  }
+ #subtitle, #share, #slider, #sidebar{
+    display:none;
+  }
+  p{ font-size: 2em; }
+}
+
 body {
 	margin: 0 auto;
 	padding: 0;
@@ -371,7 +382,15 @@ h1 {
 }
 
 .allcomments-setcomments {
+  color: #1384ae;
+	font-size: 2rem;
+  font-weight: 700;
 }
+
+.allcomments-setcomments p {
+font-size: 1.5rem;
+}
+
 
 #new-thread {
 	padding: 7rem 9rem 7rem 9rem;
@@ -442,6 +461,21 @@ h1 {
   border-radius: 0.3rem;
   cursor: pointer;
 }
+
+.reply-button 
+.reply-buttontwo {
+  background-color: white;
+  color: #1384ae;
+  padding: 0.8rem 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  border: 1px solid grey;
+}
+
 
 .form-control
 .form-label:hover{
