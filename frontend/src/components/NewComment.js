@@ -18,10 +18,16 @@ const Comments = (props) => {
       commentId: props.eachComment._id,
     });
 
-    window.location.reload();
+    //window.location.reload();
+    let newComments = [...props.comments];
+
+    newComments.unshift(res.data);
+
     // console.log(`Send ${comment} to api.js then routes.js then db`);
 
     console.log("res.data", res); //Response from backend with your new comment.{ tetxt:'b;ah', _id: '345fgdgsdg'}
+    props.setComments(newComments);
+    props.inception(newComments);
 
     // let newComments = [ ...props.comments ]; //Copy of all previous comments on the page
     // newComments.unshift(res.data); //Push ouur new commennt into he copy

@@ -4,14 +4,23 @@ import actions from "../api";
 import NewComment from "./NewComment";
 
 function EachComment(props) {
-  let { eachComment, i, comments, setComments } = props;
+  let { eachComment, i, comments, setComments, inception } = props;
   let [reply, setReply] = useState(false);
 
-  const upVote = async (whichCommentId, i) => {
+  const upVote = async (whichCommentId) => {
     let res = await actions.upVote(whichCommentId);
 
-    // let newComments = [...comments];
-    window.location.reload();
+    let newComments = [...comments];
+
+    for (let i = 0; i < newComments.length; i++) {
+      if (newComments[i]._id == whichCommentId) {
+        newComments[i] = res.data;
+      }
+    }
+    // newComments.push(res.data);
+    //newComments.find(comment => comment._id)
+    props.inception(newComments);
+    // window.location.reload();
     // newComments[i] = res.data;
     // setComments(newComments);
   };
@@ -20,7 +29,16 @@ function EachComment(props) {
     let res = await actions.downVote(whichCommentId);
 
     // let newComments = [...comments];
-    window.location.reload();
+    let newComments = [...comments];
+
+    for (let i = 0; i < newComments.length; i++) {
+      if (newComments[i]._id == whichCommentId) {
+        newComments[i] = res.data;
+      }
+    }
+    props.inception(newComments);
+    // newComments.push(res.data);
+    //newComments.find(comment => co
     // newComments[i] = res.data;
     // setComments(newComments);
   };
@@ -66,7 +84,15 @@ function EachComment(props) {
           Reply
         </button>
         <div className="eachreply-comment">
-          {reply && <NewComment eachComment={eachComment} {...props} />}
+          {reply && (
+            <NewComment
+              comments={comments}
+              setComments={setComments}
+              inception={inception}
+              eachComment={eachComment}
+              {...props}
+            />
+          )}
         </div>
       </div>
       <hr />
