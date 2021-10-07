@@ -1,30 +1,40 @@
-import { useState } from 'react';
-import axios from 'axios';
-import actions from '../api';
+import { useState, useRef } from "react";
+import axios from "axios";
+import actions from "../api";
 
 function NewThread(props) {
-  let [title, setTitle] = useState('');
-  let [text, setText] = useState('');
-  let [image, setImage] = useState('');
+  let [title, setTitle] = useState("");
+  let [text, setText] = useState("");
+  let [image, setImage] = useState("");
   let [disabled, setDisabled] = useState(false);
-
+  const uploadedImage = useRef(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
     let res = await actions.createNewThread({ title, text, image });
-    props.history.push('/all-threads');
+    props.history.push("/all-threads");
   };
 
   async function uploadPhoto(e) {
     setDisabled(true);
     const [file] = e.target.files;
-    const reader = new FileReader();
+    console.log(file);
+    if (file) {
+      const reader = new FileReader();
+      const { current } = uploadedImage;
+      current.file = file;
+      reader.onload = (e) => {
+        current.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
     const formData = new FormData();
     // let file = e.target.files[0]
     console.log(typeof file, file);
-    formData.append('file', file);
-    formData.append('upload_preset', 'zs3vfefq');
+    formData.append("file", file);
+    formData.append("upload_preset", "zs3vfefq");
     let res = await axios.post(
-      'https://iron-cors-anywhere.herokuapp.com/https://api.cloudinary.com/v1_1/dxv7j2sj6/upload',
+      "https://iron-cors-anywhere.herokuapp.com/https://api.cloudinary.com/v1_1/dxv7j2sj6/upload",
       formData
     );
     console.log(res.data);
@@ -49,14 +59,25 @@ function NewThread(props) {
         </div>
         <div className="form-control">
           <label>Text (optional):</label>
-          <textarea onChange={(e) => setText(e.target.value)} type="text" className="newthread-textarea" />
+          <textarea
+            onChange={(e) => setText(e.target.value)}
+            type="text"
+            className="newthread-textarea"
+          />
         </div>
         <div className="form-control">
           <label className="form-label">
             Upload Image
-            <input type="file" onChange={uploadPhoto} className="newthread-imageupload" />
+            <input
+              type="file"
+              onChange={uploadPhoto}
+              className="newthread-imageupload"
+            />
           </label>
         </div>
+
+        <img ref={uploadedImage} width="250" height="auto" />
+
         <div className="form-control">
           <button disabled={disabled} className="new-thread-button">
             Submit
