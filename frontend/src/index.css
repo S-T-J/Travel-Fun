@@ -46,6 +46,10 @@ footer {
   font-size: 1.3rem;
 }
 
+.vote-count {
+  font-weight: 700;
+}
+
 .home-footercontainer p a {
   text-decoration: none;
   color: inherit;
