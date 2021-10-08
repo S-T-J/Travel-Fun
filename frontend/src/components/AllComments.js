@@ -117,11 +117,10 @@ function AllComments(props) {
 
   return (
     <div className="allcomments-page">
-      <h2>{thread?.title}</h2>
-      <h3>{thread?.text}</h3>
-      <img src={thread?.image} width="250" height="auto" />
-      <p className="allcomments-header">Comments</p>
       <div className="allcomments-setcomments">
+        <h2>{thread?.title}</h2>
+        <h3>{thread?.text}</h3>
+        <img src={thread?.image} width="250" height="auto" />
         {/* <NewComment {...props} comments={comments} setComments={setComments} /> */}
         {/* <ShowComments {...props} /> */}
         <ShowReplies {...props} />

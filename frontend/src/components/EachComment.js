@@ -35,7 +35,7 @@ function EachComment(props) {
           {eachComment.userId && eachComment.userId.name}
         </span>
       </div>
-      {/* <p>{eachComment.text}</p> */}
+      <p>{eachComment.text}</p>
       <img src={eachComment.image} width="250" height="auto" />
       <div className="vote-section">
         <span className="upvote-section">
