@@ -37,6 +37,7 @@ footer {
   background-color: #ffffff;
   text-align: center;
   padding-bottom: 1.2rem;
+  margin-top: 10rem;
 }
 
 .home-footercontainer p {
@@ -99,6 +100,10 @@ code {
 .container {
   max-width: 3000px;
   margin: 0 auto;
+}
+
+.footer {
+  margin-top: 2rem;
 }
 
 .App {
@@ -316,9 +321,6 @@ h1 {
   align-items: center;
 }
 
-.user-image-section {
-}
-
 .user-image {
   width: 40px;
   border-radius: 50%;
@@ -328,6 +330,7 @@ h1 {
   font-size: 1.3rem;
   color: saddlebrown;
   margin-left: 0.5rem;
+  font-weight: 500;
 }
 
 .allcomments-page {
