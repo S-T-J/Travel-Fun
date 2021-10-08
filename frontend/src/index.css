@@ -134,6 +134,12 @@ code {
   padding: 1rem;
 }
 
+.home-showtopthreads p {
+  color: #189ece;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
 .homepage-title h1 {
   padding-left: 2rem;
   color: #1384ae;
