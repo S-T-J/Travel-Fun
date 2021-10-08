@@ -52,7 +52,7 @@ function NewThread(props) {
         </div>
         <div className="form-control">
           <label>Title:</label>
-          <input
+          <textarea
             required
             onChange={(e) => setTitle(e.target.value)}
             type="text"

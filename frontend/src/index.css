@@ -37,11 +37,6 @@ footer {
   background-color: #ffffff;
   text-align: center;
   padding-bottom: 1.2rem;
-  position: relative;
-  bottom: 0;
-  width: 100vw;
-  z-index: 1000;
-  left: 0;
 }
 
 .home-footercontainer p {
@@ -104,7 +99,6 @@ code {
 .container {
   max-width: 3000px;
   margin: 0 auto;
-  background-color: #fcfcfd;
 }
 
 .App {
@@ -191,7 +185,6 @@ code {
 body {
   background-color: #d0d4d7;
   height: 100%;
-  overflow-x: hidden;
 }
 
 .thread-info-section h2 a {
@@ -332,7 +325,7 @@ h1 {
 }
 
 .allcomments-page {
-  background-color: rgba(255, 255, 255, 0.597);
+  background-color: #d0d4d7;
   /* margin-top: -25vh; */
   /* margin-left: auto;
   margin-right: auto;
@@ -346,38 +339,38 @@ h1 {
 }
 
 .allcomments-setcomments > div:nth-child(odd) {
-  background-color: white;
-  border-radius: 1rem;
+background-color: white;
+border-radius: 1rem;
 }
 
 .allcomments-setcomments > div:nth-child(even) {
-  background-color: #eceeef;
-  border-radius: 1rem;
+background-color: #eceeef;
+border-radius: 1rem;
 }
 
-vr {
-  border-radius: 1rem;
+vr{
+  border-radius:1rem;
   border: 1px solid grey;
   /* border-top: 30px solid #eceeef; */
-  height: 50vh;
+  height: 100vh;
   position: absolute;
-  z-index: -1;
+  z-index:-1;
   width: 100vw;
   top: 0;
-  left: 0;
-  margin: 0 -2rem;
+  left:0;
+  margin:0 -2rem;
 }
 
 .allcomments-setcomments > div {
   /* border-left: 1px solid grey; */
-  position: relative;
-  z-index: 2;
-  border: none;
+  position:relative;
+  z-index:2;
+  border:none;
   padding: 50px 25px;
 }
 
-.allcomments-setcomments > div:hover {
-  background: grey;
+.allcomments-setcomments > div:hover{
+  background:grey;
 }
 
 .allcomments-setcomments hr {
@@ -468,6 +461,7 @@ vr {
   margin-top: 3vh;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 12vh;
   max-width: 1000px;
   border-radius: 1rem;
   box-sizing: border-box;
@@ -570,8 +564,8 @@ vr {
   margin-bottom: 50px;
 }
 
-#new-thread input {
-  font-size: 11px;
+#new-thread textarea {
+  font-size: 18px;
   padding: 4px 2px;
   display: block;
   text-align: left;
